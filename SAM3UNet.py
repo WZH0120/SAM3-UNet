@@ -85,7 +85,7 @@ class SAM3UNet(nn.Module):
         sam3_root = os.path.join(os.path.dirname(sam3.__file__), "..")
         bpe_path = f"{sam3_root}/assets/bpe_simple_vocab_16e6.txt.gz"
         self.sam3 = build_sam3_image_model(bpe_path=bpe_path, load_from_HF=False, device="cuda"
-                                    #    checkpoint_path="YOUR SAM3 CHECKPOINT PATH"
+                                    #    , checkpoint_path="YOUR SAM3.PT CHECKPOINT PATH"
                                     ).backbone.vision_backbone.trunk
         for param in self.sam3.parameters():
             param.requires_grad = False
@@ -93,7 +93,10 @@ class SAM3UNet(nn.Module):
         for block in self.sam3.blocks:
             blocks.append(
                 Adapter(block)
-            )  
+            )
+        self.sam3.blocks = nn.Sequential(
+            *blocks
+        )
         self.reduce1 = nn.Conv2d(1024, 128, 1)
         self.reduce2 = nn.Conv2d(1024, 128, 1)
         self.reduce3 = nn.Conv2d(1024, 128, 1)
@@ -126,4 +129,5 @@ if __name__ == "__main__":
     with torch.no_grad():
         x = torch.randn(1, 3, 1008, 1008).cuda()
         out = model(x)
+
         print(out.shape)
