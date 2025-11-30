@@ -2,7 +2,7 @@
 ## [SAM3-UNet: Simplified Adaptation of Segment Anything Model 3](https://arxiv.org/)
 
 ## Introduction
-![framework](./sam3unet.png)In this paper, we introduce SAM3-UNet, a simplified variant of Segment Anything Model 3 (SAM3), designed to adapt SAM3 for downstream tasks at a low cost. Our SAM3-UNet consists of three components: a SAM3 image encoder, a simple adapter for parameter-efficient fine-tuning, and a lightweight U-Net-style decoder. Preliminary experiments on multiple tasks, such as mirror detection and salient object detection, demonstrate that the proposed SAM3-UNet outperforms the prior SAM2-UNet and other state-of-the-art methods, while requiring only 3.6 GB of GPU memory during training with a batch size of 1.
+![framework](./sam3unet.jpg)In this paper, we introduce SAM3-UNet, a simplified variant of Segment Anything Model 3 (SAM3), designed to adapt SAM3 for downstream tasks at a low cost. Our SAM3-UNet consists of three components: a SAM3 image encoder, a simple adapter for parameter-efficient fine-tuning, and a lightweight U-Net-style decoder. Preliminary experiments on multiple tasks, such as mirror detection and salient object detection, demonstrate that the proposed SAM3-UNet outperforms the prior SAM2-UNet and other state-of-the-art methods, while requiring only 3.6 GB of GPU memory during training with a batch size of 1.
 
 [微信交流群](https://github.com/WZH0120/SAM2-UNet/blob/main/wechat.jpg)
 
