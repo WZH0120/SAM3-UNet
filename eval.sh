@@ -1,4 +1,4 @@
-# pip install pysodmetrics==1.4.3
+# pip install pysodmetrics==1.4.3 
 python eval.py \
 --dataset_name "<set your dataset name here>" \
 --pred_path "<set your prediction result path here>" \
